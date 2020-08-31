@@ -1,0 +1,41 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "A pokedédex made in React",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danrmrz/pokedex.git"
+  },
+  "author": "Dan Ramirez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danrmrz/pokedex/issues"
+  },
+  "homepage": "https://github.com/danrmrz/pokedex#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.3.0",
+    "html-webpack-plugin": "^4.4.1",
+    "mini-css-extract-plugin": "^0.11.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

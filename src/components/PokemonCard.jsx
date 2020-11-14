@@ -4,9 +4,24 @@ import '../assets/styles/components/PokemonCard.styl'
 
 import pokeball_icon from '../assets/static/pokeball-icon-gray.png'
 
-const PokemonCard = ( image, name, number ) => {
+const capitalize = string => {
   return(
-    <div className='pokemon-card'>
+    string.replace(
+      /^\w/,
+      (letter) => letter.toUpperCase()
+    )
+  )
+}
+
+
+const PokemonCard = ({ image, name, number, link }) => {
+  name = capitalize(name)
+
+  return(
+    <a
+      className='pokemon-card'
+      href={link}
+    >
       <div className='pokemon-card__image--background'>
         <img src={image} alt={`${name}-image`}/>
       </div>
@@ -17,7 +32,7 @@ const PokemonCard = ( image, name, number ) => {
           <span>{`${number}`}</span>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

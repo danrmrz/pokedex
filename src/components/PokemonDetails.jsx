@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/PokemonDetails.styl'
 
+import back_icon from '../assets/static/back-icon.png'
 import pokeball_icon from '../assets/static/pokeball-icon-gray-light.png'
 
 import formatId from '../utils/formatId'
@@ -10,7 +12,9 @@ import capitalize from '../utils/capitalize'
 const PokemonDetails = ({ pokemon }) => {
   const id = pokemon.id
   const image = pokemon.sprites.other['official-artwork'].front_default
-  const name = pokemon.forms[0].name
+        ? pokemon.sprites.other['official-artwork'].front_default
+        : pokemon.sprites.front_default
+  const name = pokemon.name
   const types = pokemon.types.map(type => type.type.name)
   const height = pokemon.height
   const weight = pokemon.weight
@@ -25,6 +29,13 @@ const PokemonDetails = ({ pokemon }) => {
 
   return(
     <div className='pokemon-details'>
+      <Link
+        to='/'
+        className='pokemon-details__button'
+      >
+        <img src={back_icon} alt='back-icon' />
+      </Link>
+
       <div className='pokemon-details__image'>
         <h2 className='pokemon-details__image--id'>
           <img
@@ -60,14 +71,14 @@ const PokemonDetails = ({ pokemon }) => {
       <h3 className='pokemon-details__title'>
         Stats:
       </h3>
-      <div className="pokemon-details__stats">
-        <div className="pokemon-details__stats--info">
-          <ul className="pokemon-details__stats--info-attributes">
+      <div className='pokemon-details__stats'>
+        <div className='pokemon-details__stats--info'>
+          <ul className='pokemon-details__stats--info-attributes'>
             <li>{`Height: ${height/10}m`}</li>
             <li>{`Weight: ${weight/10}kg`}</li>
           </ul>
           <span>Abilities:</span>
-          <ul className="pokemon-details__stats--info-abilities">
+          <ul className='pokemon-details__stats--info-abilities'>
             {abilities.map(abilitie =>
               <li key={abilitie}>
                 <span>
@@ -78,7 +89,7 @@ const PokemonDetails = ({ pokemon }) => {
           </ul>
         </div>
 
-        <div className="pokemon-details__stats--stats">
+        <div className='pokemon-details__stats--stats'>
           <ul>
             {stats.map(stat =>
               <li key={stat.name}>

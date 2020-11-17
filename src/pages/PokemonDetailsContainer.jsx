@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import getPokemonData from '../utils/getPokemonData'
 import PokemonDetails from '../components/PokemonDetails'
+import Loader from '../components/Loader'
 
 const API = 'https://pokeapi.co/api/v2/pokemon/'
 
@@ -21,7 +22,7 @@ const PokemonDetailsContainer = (props) => {
       {
         pokemon
           ? <PokemonDetails pokemon={pokemon}></PokemonDetails>
-          : <h1>Loading...</h1>
+          : <Loader></Loader>
       }
     </>
   )

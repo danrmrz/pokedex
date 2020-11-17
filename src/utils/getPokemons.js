@@ -9,10 +9,13 @@ const getPokemons = async (api) => {
     const poke_data_promises = poke_urls.map(url => getPokemonData(url))
     let poke_data_list = await Promise.all(poke_data_promises)
     poke_data_list = poke_data_list.map(pokemon => {
+      const image = pokemon.sprites.other["official-artwork"].front_default
+        ? pokemon.sprites.other["official-artwork"].front_default
+        : pokemon.sprites.front_default
       return({
         id: pokemon.id,
-        name: pokemon.forms[0].name,
-        image: pokemon.sprites.other["official-artwork"].front_default
+        name: pokemon.name,
+        image: image
       })
     })
     return(poke_data_list)

@@ -5,11 +5,13 @@ import '../assets/styles/pages/PokemonCardsContainer.styl'
 import getPokemons from '../utils/getPokemons'
 import formatId from '../utils/formatId'
 import PokemonCard from '../components/PokemonCard'
+import MiniLoader from '../components/MiniLoader'
 
 const API = 'https://pokeapi.co/api/v2/pokemon?limit=15&offset=0'
 
 const PokemonCardContainer = () => {
   const [pokemons, setPokemons] = useState([])
+  const [pokemonsListEnd, setPokemonsListEnd] = useState(false)
   let pokemons_list = pokemons
 
   const observer = useRef(null)
@@ -25,9 +27,14 @@ const PokemonCardContainer = () => {
     const intersectionObserver = new window.IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting) {
-          pokemons_list.length === 0
-            ? savePokemons(API)
-            : savePokemons(localStorage.next_list)
+          if (pokemons_list.length === 0) {
+            savePokemons(API)
+          } else if (localStorage.next_list !== 'null') {
+            savePokemons(localStorage.next_list)
+          } else {
+            intersectionObserver.unobserve(observer.current)
+            setPokemonsListEnd(true)
+          }
         }
       },
       {
@@ -44,19 +51,11 @@ const PokemonCardContainer = () => {
   return(
     <>
       {
-        pokemons.length===0
+        pokemons.length === 0
           ? <h1>Loading...</h1>
           : <div className='card-container'>
-            {/* id: pokemon.id,
-            name: pokemon.forms[0].name,
-            image: pokemon.sprites.other["official-artwork"].front_default,
-            link: api */}
               {pokemons.map(pokemon =>
                 <PokemonCard
-                  // key={poke.id}
-                  // image={poke.sprites.other["official-artwork"].front_default}
-                  // name={poke.forms[0].name}
-                  // number={formatId(poke.id)}
                   key={pokemon.id}
                   image={pokemon.image}
                   name={pokemon.name}
@@ -65,7 +64,11 @@ const PokemonCardContainer = () => {
               )}
             </div>
       }
-      <div className='loader' ref={observer}></div>
+      {
+        pokemonsListEnd === false
+          ? <div ref={observer}><MiniLoader></MiniLoader></div>
+          : <div></div>
+      }
     </>
   )
 }

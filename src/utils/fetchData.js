@@ -3,6 +3,7 @@ const fetchData = (api) => {
     fetch(api)
       .then(response => response.json())
       .then(data => data)
+      .catch(error => error)
   )
 }
 

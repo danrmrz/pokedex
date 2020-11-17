@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-import '../assets/styles/components/PokemonCardsContainer.styl'
+import '../assets/styles/pages/PokemonCardsContainer.styl'
 
 import getPokemons from '../utils/getPokemons'
-import PokemonCard from './PokemonCard'
+import formatId from '../utils/formatId'
+import PokemonCard from '../components/PokemonCard'
 
 const API = 'https://pokeapi.co/api/v2/pokemon?limit=15&offset=0'
 
@@ -11,14 +12,14 @@ const PokemonCardContainer = () => {
   const [pokemons, setPokemons] = useState([])
   let pokemons_list = pokemons
 
+  const observer = useRef(null)
+
   const savePokemons = (api) => {
     getPokemons(api)
       .then(response => pokemons_list = pokemons_list.concat(response))
       .then(response => setPokemons(response))
       .catch(error => console.error(error))
   }
-
-  const observer = useRef(null)    
 
   useEffect(()=>{
     const intersectionObserver = new window.IntersectionObserver(
@@ -34,7 +35,7 @@ const PokemonCardContainer = () => {
       }
     )
     intersectionObserver.observe(observer.current)
-    
+
     return function cleanObserver() {
       intersectionObserver.unobserve(observer.current)
     }
@@ -46,13 +47,20 @@ const PokemonCardContainer = () => {
         pokemons.length===0
           ? <h1>Loading...</h1>
           : <div className='card-container'>
-              {pokemons.map(poke =>
+            {/* id: pokemon.id,
+            name: pokemon.forms[0].name,
+            image: pokemon.sprites.other["official-artwork"].front_default,
+            link: api */}
+              {pokemons.map(pokemon =>
                 <PokemonCard
-                  key={poke.id}
-                  image={poke.image}
-                  name={poke.name}
-                  number={poke.id}
-                  link={poke.link}
+                  // key={poke.id}
+                  // image={poke.sprites.other["official-artwork"].front_default}
+                  // name={poke.forms[0].name}
+                  // number={formatId(poke.id)}
+                  key={pokemon.id}
+                  image={pokemon.image}
+                  name={pokemon.name}
+                  number={formatId(pokemon.id)}
                 />
               )}
             </div>

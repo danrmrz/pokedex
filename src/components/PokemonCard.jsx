@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/PokemonCard.styl'
 
-import pokeball_icon from '../assets/static/pokeball-icon-gray.png'
+import pokeball_icon from '../assets/static/pokeball-icon-white.png'
 
 import capitalize from '../utils/capitalize'
 

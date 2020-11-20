@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/PokemonDetails.styl'
 
-import back_icon from '../assets/static/back-icon.png'
+import arrow_icon from '../assets/static/arrow-icon.png'
 import pokeball_icon from '../assets/static/pokeball-icon-gray-light.png'
 
 import formatId from '../utils/formatId'
@@ -29,12 +29,18 @@ const PokemonDetails = ({ pokemon }) => {
 
   return(
     <div className='pokemon-details'>
-      <Link
-        to='/'
-        className='pokemon-details__button'
-      >
-        <img src={back_icon} alt='back-icon' />
-      </Link>
+      <div className='pokemon-details__button'>
+        <Link
+          to='/'
+          className='pokemon-details__button--link'
+        >
+          <img
+            src={arrow_icon}
+            alt='arrow-icon'
+            className='pokemon-details__button--image'
+          />
+        </Link>
+      </div>
 
       <div className='pokemon-details__image'>
         <h2 className='pokemon-details__image--id'>
@@ -102,9 +108,9 @@ const PokemonDetails = ({ pokemon }) => {
         </div>
       </div>
       
-      <h3 className='pokemon-details__title'>
+      {/* <h3 className='pokemon-details__title'>
         Evolution chain:
-      </h3>
+      </h3> */}
     </div>
   )
 }

@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/PokemonCard.styl'
 
-import pokeball_icon from '../assets/static/pokeball-icon-white.png'
-
 import capitalize from '../utils/capitalize'
 
+const pokeball_icon = 'https://firebasestorage.googleapis.com/v0/b/pokedex-3057e.appspot.com/o/pokeball-icon-white.png?alt=media&token=e8e6667e-2b19-4962-8e90-6f08fa0b5859'
 
 const PokemonCard = ({ image, name, number }) => {
 

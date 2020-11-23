@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/PokemonDetails.styl'
 
-import arrow_icon from '../assets/static/arrow-icon.png'
-import pokeball_icon from '../assets/static/pokeball-icon-gray-light.png'
-
 import formatId from '../utils/formatId'
 import capitalize from '../utils/capitalize'
+
+const arrow_icon = 'https://firebasestorage.googleapis.com/v0/b/pokedex-3057e.appspot.com/o/arrow-icon.png?alt=media&token=cd000fd5-9066-4381-8bc4-27e719680b61'
+const pokeball_icon = 'https://firebasestorage.googleapis.com/v0/b/pokedex-3057e.appspot.com/o/pokeball-icon-gray-light.png?alt=media&token=d500f55b-c215-4f10-b6f3-49fba3adbf69'
 
 const PokemonDetails = ({ pokemon }) => {
   const id = pokemon.id

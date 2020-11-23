@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 import '../assets/styles/pages/PokemonCardsContainer.styl'
-import close_icon from '../assets/static/close-icon-grey.png'
 
 import getPokemons from '../utils/getPokemons'
 import getPokemonData from '../utils/getPokemonData'
@@ -13,6 +12,7 @@ import Loader from '../components/Loader'
 import MiniLoader from '../components/MiniLoader'
 import Searcher from '../components/Searcher'
 
+const close_icon = 'https://firebasestorage.googleapis.com/v0/b/pokedex-3057e.appspot.com/o/close-icon-grey.png?alt=media&token=049f179f-8dbe-4304-8bbf-e2987bc6765f'
 const API = 'https://pokeapi.co/api/v2/pokemon?limit=30&offset=0'
 const API_SEARCH = 'https://pokeapi.co/api/v2/pokemon/'
 

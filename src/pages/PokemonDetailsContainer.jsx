@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import getPokemonData from '../utils/getPokemonData'
+
 import PokemonDetails from '../components/PokemonDetails'
 import Loader from '../components/Loader'
 

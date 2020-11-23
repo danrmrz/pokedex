@@ -1,9 +1,8 @@
 import React, {useRef} from 'react'
 
-import search_icon from '../assets/static/search-icon.png'
-
 import '../assets/styles/components/Searcher.styl'
 
+const search_icon = 'https://firebasestorage.googleapis.com/v0/b/pokedex-3057e.appspot.com/o/search-icon.png?alt=media&token=ca4f60fc-221a-4876-b8b5-c9bd6d3284ba'
 
 const Searcher = ({handleSetSearch}) => {
   const searcher_input = useRef(null)

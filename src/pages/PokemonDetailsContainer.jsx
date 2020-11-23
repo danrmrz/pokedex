@@ -18,13 +18,13 @@ const PokemonDetailsContainer = (props) => {
   }, [])
 
   return(
-    <>
+    <div className='container'>
       {
         pokemon
           ? <PokemonDetails pokemon={pokemon}></PokemonDetails>
           : <Loader></Loader>
       }
-    </>
+    </div>
   )
 }
 

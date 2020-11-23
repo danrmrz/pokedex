@@ -13,7 +13,7 @@ import Loader from '../components/Loader'
 import MiniLoader from '../components/MiniLoader'
 import Searcher from '../components/Searcher'
 
-const API = 'https://pokeapi.co/api/v2/pokemon?limit=15&offset=0'
+const API = 'https://pokeapi.co/api/v2/pokemon?limit=30&offset=0'
 const API_SEARCH = 'https://pokeapi.co/api/v2/pokemon/'
 
 const PokemonCardContainer = () => {
@@ -109,7 +109,7 @@ const PokemonCardContainer = () => {
   }
 
   return(
-    <>
+    <div className='container'>
       <Searcher handleSetSearch={handleSearchPokemon}></Searcher>
       {
         pokemons.length === 0
@@ -127,10 +127,15 @@ const PokemonCardContainer = () => {
       }
       {
         pokemonsListEnd === false
-          ? <div ref={observer}><MiniLoader></MiniLoader></div>
+          ? <div
+              ref={observer}
+              className='observer'
+            >
+              <MiniLoader></MiniLoader>
+            </div>
           : <div></div>
       }
-    </>
+    </div>
   )
 }
 

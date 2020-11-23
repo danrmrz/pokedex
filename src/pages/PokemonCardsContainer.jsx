@@ -54,7 +54,8 @@ const PokemonCardContainer = () => {
     intersectionObserver.observe(observer.current)
 
     return function cleanObserver() {
-      intersectionObserver.unobserve(observer.current)
+      if (observer.current)
+        intersectionObserver.unobserve(observer.current)
     }
   },[])
 

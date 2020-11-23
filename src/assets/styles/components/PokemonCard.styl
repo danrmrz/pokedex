@@ -3,7 +3,7 @@
   flex-direction column
   width 180px
   height 200px
-  margin 10px 5px
+  margin 10px
   border-radius 10px
   background-color #1D84D4
   overflow hidden
@@ -54,3 +54,8 @@
         width 1rem
         height 1rem
         margin-right 2px
+
+@media screen and (max-width 400px)
+  .pokemon-card
+    min-width 150px
+    width calc(50vw - 20px)

@@ -75,7 +75,7 @@ const PokemonCardContainer = () => {
 
   if (search !== null && searchedPokemon !== null) {
     return(
-      <>
+      <div className='container'>
         <Searcher handleSetSearch={handleSearchPokemon}></Searcher>
         <button
           className='card-container__close-button'
@@ -91,11 +91,11 @@ const PokemonCardContainer = () => {
               number={formatId(searchedPokemon.id)}
             />
         </div>
-      </>
+      </div>
     )
   } else if (search !== null && error !== null) {
     return(
-      <>
+      <div className='container'>
         <Searcher handleSetSearch={handleSearchPokemon}></Searcher>
         <button
           className='card-container__close-button'
@@ -104,7 +104,7 @@ const PokemonCardContainer = () => {
           <img src={close_icon} alt='close-icon' />
         </button>
         <h1>Ups something went wrong searching: {search}</h1>
-      </>
+      </div>
     )
   }
 
